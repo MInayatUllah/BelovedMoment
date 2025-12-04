@@ -5,20 +5,20 @@ import Image from 'next/image';
 
 export default function ProductSection() {
   const [selectedTime, setSelectedTime] = useState('48h');
-  const [uploadedFile, setUploadedFile] = useState(null);
+  const [uploadedFile, setUploadedFile] = useState<{file: File, dataUrl: string} | null>(null);
   const [isUploading, setIsUploading] = useState(false);
 
   const price = selectedTime === '48h' ? 15 : 20;
 
-  const handleFileUpload = (e) => {
-    const file = e.target.files[0];
+  const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
     if (file) {
       setIsUploading(true);
       const reader = new FileReader();
       reader.onload = () => {
         setUploadedFile({
           file,
-          dataUrl: reader.result
+          dataUrl: reader.result as string
         });
         setIsUploading(false);
       };

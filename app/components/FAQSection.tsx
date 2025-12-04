@@ -5,7 +5,7 @@ import { useState } from 'react';
 export default function FAQSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
-  const faqs = [
+  const faqs: Array<{question: string; answer: string}> = [
     {
       question: "What kind of images work best?",
       answer: "High-quality portraits with clear facial features work best. Images should be at least 512x512 pixels for optimal results. We support JPG, PNG, and WEBP formats."
@@ -32,7 +32,7 @@ export default function FAQSection() {
     }
   ];
 
-  const toggleFAQ = (index: number) => {
+  const toggleFAQ = (index: number): void => {
     setOpenIndex(openIndex === index ? null : index);
   };
 

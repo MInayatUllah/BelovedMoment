@@ -3,7 +3,6 @@
 import { useState } from 'react';
 import Image from 'next/image';
 
-
 export default function ProductSection() {
   const [selectedTime, setSelectedTime] = useState('48h');
   const [uploadedFile, setUploadedFile] = useState<{file: File, dataUrl: string, url: string} | null>(null);
@@ -72,64 +71,143 @@ export default function ProductSection() {
   };
 
   return (
-    <section id="Product" className="py-20 bg-white">
+    <section id="Product" className="py-16 backdrop-blur-xl">
       <div className="container mx-auto px-4 max-w-4xl">
         
-        {/* Header */}
-        <div className="text-center mb-12">
-          <h2 className="text-4xl lg:text-5xl font-bold text-black mb-6">
-            Bring Your Photos to Life, Relive Your Memories
-          </h2>
-          
-          <div className="flex items-center justify-center gap-4 mb-4">
-            <div className="flex">
-              {[1,2,3,4,5].map((i) => (
-                <span key={i} className="text-yellow-400 text-xl">★</span>
-              ))}
+        {/* 1. Video Section */}
+        <div className="mb-12 text-center">
+          <div className="relative inline-block">
+            <div 
+              className="w-full h-auto md:w-200 md:h-90 bg-black rounded-[30px] overflow-hidden relative cursor-pointer"
+              onClick={() => document.querySelector('section')?.scrollIntoView({ behavior: 'smooth' })}
+            >
+              <img 
+                src="/gifs/Header 1.gif" 
+                alt="Example Video" 
+                className="w-full h-full object-contain"
+              />
+              <div className="absolute inset-0 bg-black/50"></div>
+              <div className="absolute bottom-8 left-8 flex items-center gap-3">
+                <button className="w-12 h-12 bg-white/90 rounded-full flex items-center justify-center hover:bg-white transition-colors cursor-pointer">
+                  <svg className="w-5 h-5 text-black" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M8 5v14l11-7z"/>
+                  </svg>
+                </button>
+                <span className="text-white font-medium">See more Video</span>
+              </div>
             </div>
-            <span className="text-black">3449 reviews</span>
           </div>
-          
-          <div className="text-4xl font-bold text-black mb-6">
-            ${price}.00
-          </div>
-          
-          <p className="text-gray-600 mb-8">
-            Your old photo will be transformed into 6-10 second emotional video, delivered within your chosen timeframe.
+        </div>
+
+        {/* 2. Heading and Para */}
+        <div className="text-center mb-8">
+          <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-black mb-4">
+            Transform Your Photos Into Living Memories
+          </h2>
+          <p className="text-sm sm:text-base md:text-lg text-gray-600 max-w-2xl mx-auto px-4">
+            We'll turn your old picture into a 6–10 second emotional video, delivered when you choose.
           </p>
         </div>
 
-        {/* Time Selection Tabs */}
-        <div className="mb-8">
-          <h3 className="text-black text-lg mb-4">Receiving Time:</h3>
-          <div className="flex gap-4">
-            <button
-              onClick={() => setSelectedTime('48h')}
-              className={`px-6 py-3 rounded-lg font-semibold transition-colors ${
-                selectedTime === '48h' 
-                  ? 'bg-black text-white border-2 border-black' 
-                  : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
-              }`}
-            >
-              Within 48 hours
-            </button>
-            <button
-              onClick={() => setSelectedTime('15h')}
-              className={`px-6 py-3 rounded-lg font-semibold transition-colors ${
-                selectedTime === '15h' 
-                  ? 'bg-black text-white border-2 border-black' 
-                  : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
-              }`}
-            >
-              Within 15 hours
-            </button>
+        {/* 3. Rating Section */}
+        <div className="text-center mb-8">
+          <div className="flex items-center justify-center gap-1 mb-2">
+            {[1,2,3,4].map((i) => (
+              <span key={i} className="text-yellow-400 text-2xl">★</span>
+            ))}
+            <span className="text-yellow-400 text-2xl opacity-20">★</span>
+          </div>
+          <p className="text-gray-700 text-lg">
+            <span className="font-bold">4.8</span> (2,785 reviews)
+          </p>
+        </div>
+
+        {/* 4. Pricing Card */}
+        <div className="bg-white rounded-2xl p-6 shadow-lg mb-8">
+          <div className="flex items-center justify-between mb-6">
+            <div>
+              <p className="text-gray-500 text-sm">Total Price</p>
+              <p className="text-3xl font-bold text-black">${price}.00</p>
+            </div>
+            <div className="bg-green-100 text-green-700 px-4 py-1 rounded-[50px] font-small text-[12px] font-bold">
+              Premium Quality
+            </div>
+          </div>
+
+          {/* Delivery Speed */}
+          <div className="mb-6">
+            <h3 className="text-base sm:text-lg font-semibold text-black mb-3">Delivery Speed</h3>
+            <div className="flex gap-2 sm:gap-3 justify-center">
+              <button
+                onClick={() => setSelectedTime('48h')}
+                className={`p-3 sm:p-4 md:p-6 rounded-xl border-2 transition-all w-[140px] sm:w-[180px] md:w-[200px] cursor-pointer ${
+                  selectedTime === '48h' 
+                    ? 'border-[lab(23%_28.14_-32.02_/_0.8)] bg-purple-50' 
+                    : 'border-gray-200 hover:border-gray-300'
+                }`}
+              >
+                <div className="text-center">
+                  <p className="font-semibold text-black text-[24px]">48h</p>
+                  <p className="text-xs sm:text-sm text-gray-600">Standard</p>
+                </div>
+              </button>
+              <button
+                onClick={() => setSelectedTime('15h')}
+                className={`p-3 sm:p-4 rounded-xl border-2 transition-all relative w-[140px] sm:w-[180px] md:w-[200px] cursor-pointer ${
+                  selectedTime === '15h' 
+                    ? 'border-[lab(23%_28.14_-32.02_/_0.8)]' 
+                    : 'border-gray-200 hover:border-gray-300'
+                }`}
+              >
+                <div className="absolute top-[-14px] left-1/2 -translate-x-1/2 bg-[lab(23%_28.14_-32.02)] text-white text-[11px] w-[80%] md:text-xs md:w-auto px-2 py-1 rounded-full">
+                  POPULAR +$5
+                </div>
+                <div className="text-center">
+                  <p className="font-semibold text-black text-[24px]">15h</p>
+                  <p className="text-sm text-gray-600">Express</p>
+                </div>
+              </button>
+            </div>
           </div>
         </div>
 
-        {/* File Upload */}
+        {/* Payment Cards */}
+        <div className="text-center mb-8">
+          <div className="flex items-center justify-center gap-3">
+            {/* Visa */}
+            <div className="w-16 h-10 bg-white rounded border border-gray-200 flex items-center justify-center p-1">
+              <svg className="w-full h-full" viewBox="0 0 40 24" fill="none">
+                <path d="M8 8h3l2 8h-2.5l-2-8zm6 0l-1.5 8h2.5l1.5-8h-2.5zm4.5 0c-.5 0-1 .3-1.2.8l-2 7.2h2.5l.5-1.5h3l.3 1.5h2.2l-2-8h-2.3zm.3 4.5l.8-2.5.5 2.5h-1.3zm5.7-4.5l-2 8h2.5l2.8-5 .7 5h2.2l1-8h-2.2l-1.8 5-.9-5h-2.3z" fill="#1A1F71"/>
+              </svg>
+            </div>
+            {/* Mastercard */}
+            <div className="w-16 h-10 bg-white rounded border border-gray-200 flex items-center justify-center p-1">
+              <svg className="w-full h-full" viewBox="0 0 40 24" fill="none">
+                <circle cx="15" cy="12" r="6" fill="#EB001B"/>
+                <circle cx="25" cy="12" r="6" fill="#F79E1B"/>
+                <path d="M20 7c1.3 1.1 2.1 2.8 2.1 4.8s-.8 3.7-2.1 4.8c-1.3-1.1-2.1-2.8-2.1-4.8S18.7 8.1 20 7z" fill="#FF5F00"/>
+              </svg>
+            </div>
+            {/* American Express */}
+            <div className="w-16 h-10 bg-white rounded border border-gray-200 flex items-center justify-center p-1">
+              <svg className="w-full h-full" viewBox="0 0 40 24" fill="none">
+                <rect width="40" height="24" rx="2" fill="#006FCF"/>
+                <path d="M6 7h3l.8 1.5L10.6 7H14v6h-2.5V9.5l-.8 1.5h-1.4l-.8-1.5V13H6V7zm8 0h5v1.5h-3.5v.8h3.5v1.5h-3.5v.7h3.5V13h-5V7zm7 0h2.5l1.5 3 1.5-3H28l-2.5 6h-2.5L21 7z" fill="white"/>
+              </svg>
+            </div>
+            {/* PayPal */}
+            <div className="w-16 h-10 bg-white rounded border border-gray-200 flex items-center justify-center p-1">
+              <svg className="w-full h-full" viewBox="0 0 40 24" fill="none">
+                <path d="M8 7h5c2.5 0 4 1.5 4 3.5 0 2-1.5 3.5-4 3.5h-2l-.8 3H8.5L8 7zm2.5 5h2c1 0 1.8-.8 1.8-1.8S13.5 8.5 12.5 8.5h-2L10.5 12z" fill="#003087"/>
+                <path d="M18 7h5c2.5 0 4 1.5 4 3.5 0 2-1.5 3.5-4 3.5h-2l-.8 3H18.5L18 7zm2.5 5h2c1 0 1.8-.8 1.8-1.8S23.5 8.5 22.5 8.5h-2L20.5 12z" fill="#009CDE"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+
         <div className="mb-8">
           {!uploadedFile && !isUploading && (
-            <div className="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center">
+            <div className="border-2 border-dashed border-gray-300 rounded-2xl p-6 text-center bg-white hover:border-purple-400 transition-colors">
               <input
                 type="file"
                 accept="image/*"
@@ -138,67 +216,64 @@ export default function ProductSection() {
                 id="file-upload"
               />
               <label htmlFor="file-upload" className="cursor-pointer">
-                <div className="text-black mb-4">
-                  <svg className="mx-auto mb-4 w-12 h-12 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                  <svg className="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
                   </svg>
                 </div>
-                <p className="text-black text-lg mb-2">Drag and drop your file or browse</p>
-                <p className="text-gray-500">PNG, JPG up to 10MB</p>
+                <p className="text-lg font-semibold text-black mb-1">Drop your photo here</p>
+                <p className="text-gray-500 text-sm">or click to browse • PNG, JPG up to 10MB</p>
               </label>
             </div>
           )}
 
           {isUploading && (
-            <div className="bg-blue-600 rounded-lg p-6 flex items-center justify-between">
+            <div className="bg-blue-50 border border-blue-200 rounded-2xl p-6 flex items-center justify-between">
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 bg-blue-500 rounded flex items-center justify-center">
-                  <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                  </svg>
+                <div className="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center">
+                  <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-white"></div>
                 </div>
                 <div>
-                  <p className="text-white font-semibold">Uploading...</p>
-                  <p className="text-blue-200 text-sm">Please wait</p>
+                  <p className="text-blue-900 font-semibold">Uploading your photo...</p>
+                  <p className="text-blue-600 text-sm">Please wait a moment</p>
                 </div>
               </div>
-              <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-white"></div>
             </div>
           )}
 
           {uploadedFile && (
-            <div className="bg-green-600 rounded-lg p-6 flex items-center justify-between">
+            <div className="bg-green-50 border border-green-200 rounded-2xl p-6 flex items-center justify-between">
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 bg-green-500 rounded flex items-center justify-center">
+                <div className="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center">
                   <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                   </svg>
                 </div>
                 <div>
-                  <p className="text-white font-semibold">{uploadedFile.file.name}</p>
-                  <p className="text-green-200 text-sm">Upload complete - tap close to undo</p>
+                  <p className="text-green-900 font-semibold">{uploadedFile.file.name}</p>
+                  <p className="text-green-600 text-sm">Ready to transform into video</p>
                 </div>
               </div>
-              <button onClick={removeFile} className="text-white hover:text-red-300">
-                <Image src="/close-icon.svg" alt="Remove" width={24} height={24} />
+              <button onClick={removeFile} className="text-gray-400 hover:text-red-500 transition-colors cursor-pointer">
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
               </button>
             </div>
           )}
         </div>
 
-        {/* Checkout Button */}
+
         <div className="text-center">
           <button 
             onClick={handleCheckout}
-            className="bg-black border-2 border-black text-white px-12 py-4 rounded-lg font-semibold hover:bg-gray-800 transition-colors flex items-center gap-3 mx-auto disabled:opacity-50"
+            className="bg-[lab(23%_28.14_-32.02)] hover:bg-[lab(23%_28.14_-32.02_/_0.9)] px-8 py-3 text-white  rounded-[50px] cursor-pointer font-semibold transition-colors flex items-center gap-3 mx-auto text-lg"
             disabled={!uploadedFile}
           >
             <span>Proceed to Checkout</span>
-            <div className="hidden">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 511.494 511.494" width="20" height="20" className="animate-spin">
-                <path d="M478.291,255.492c-16.133,0.143-29.689,12.161-31.765,28.16c-15.37,105.014-112.961,177.685-217.975,162.315 S50.866,333.006,66.236,227.992S179.197,50.307,284.211,65.677c35.796,5.239,69.386,20.476,96.907,43.959l-24.107,24.107   c-8.33,8.332-8.328,21.84,0.004,30.17c4.015,4.014,9.465,6.262,15.142,6.246h97.835c11.782,0,21.333-9.551,21.333-21.333V50.991   c-0.003-11.782-9.556-21.331-21.338-21.329c-5.655,0.001-11.079,2.248-15.078,6.246l-28.416,28.416   C320.774-29.34,159.141-19.568,65.476,86.152S-18.415,353.505,87.304,447.17s267.353,83.892,361.017-21.828   c32.972-37.216,54.381-83.237,61.607-132.431c2.828-17.612-9.157-34.183-26.769-37.011   C481.549,255.641,479.922,255.505,478.291,255.492z" fill="currentColor"/>
-              </svg>
-            </div>
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
           </button>
         </div>
       </div>

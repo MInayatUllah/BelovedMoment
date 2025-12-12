@@ -1,52 +1,93 @@
+'use client';
+
 export default function HowItWorksSection() {
   return (
     <section 
       id="how-it-works" 
-      className="relative z-[1] py-20 bg-cover bg-center"
-      style={{ backgroundColor: 'rgb(3, 3, 3)' }}
+      className="py-16 bg-purple-900/10 backdrop-blur-xl"
     >
-      <div className="absolute inset-0 bg-black/70"></div>
-      
-      <div className="relative z-10 container mx-auto px-4 flex flex-col items-center gap-4">
-        <div className="flex flex-col gap-4 text-center">
-          <h2 className="text-3xl lg:text-4xl font-light text-white">
-            Three simple steps to get up and running
-          </h2>
-          <h2 className="text-4xl lg:text-5xl font-bold text-white">
+      <div className="container mx-auto px-4 max-w-6xl">
+        
+        {/* Header */}
+        <div className="text-center mb-8 md:mb-12">
+          <p className="text-purple-600 font-semibold text-sm sm:text-base md:text-lg mb-2">Simple Guide</p>
+          <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-black mb-4">
             How It Works
           </h2>
+          <p className="text-gray-600 text-sm sm:text-base md:text-lg max-w-2xl mx-auto px-4">
+            Three simple steps to get up and running with your animation
+          </p>
         </div>
         
-        <div className="mt-14 grid grid-cols-1 gap-8 md:grid-cols-3 max-w-6xl">
-          <div className="flex flex-col items-center text-center gap-6">
-            <div className="flex items-center justify-center size-[120px] rounded-full bg-blue-600/20">
-              <span className="text-6xl font-bold text-blue-500">1</span>
+        {/* Steps Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+          
+          {/* Step 1 - Upload */}
+          <div className="bg-white rounded-2xl p-8 shadow-lg text-center relative">
+            <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 w-15 h-15 bg-[lab(23%_28.14_-32.02)] rounded-full flex items-center justify-center">
+              <span className="text-white font-bold text-xl">1</span>
             </div>
-            <h3 className="text-2xl font-semibold text-white">1. Upload Your Image</h3>
-            <span className="text-gray-300">
+            <div className="mt-12 mb-0">
+              <div className="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg className="w-8 h-8 text-[lab(23%_28.14_-32.02)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
+                </svg>
+              </div>
+            </div>
+            <h3 className="text-lg sm:text-xl font-semibold text-black mb-3">Upload Your Photo</h3>
+            <p className="text-gray-600 text-sm sm:text-base">
               Start with any image – portrait, product shot, or art. Just drag and drop.
-            </span>
-          </div>
-          
-          <div className="flex flex-col items-center text-center gap-6">
-            <div className="flex items-center justify-center size-[120px] rounded-full bg-blue-600/20">
-              <span className="text-6xl font-bold text-blue-500">2</span>
-            </div>
-            <h3 className="text-2xl font-semibold text-white">2. Choose Animation Style</h3>
-            <p className="text-gray-300">
-              Pick from cinematic zooms, subtle movement, or expressive storytelling.
             </p>
           </div>
           
-          <div className="flex flex-col items-center text-center gap-6">
-            <div className="flex items-center justify-center size-[120px] rounded-full bg-blue-600/20">
-              <span className="text-6xl font-bold text-blue-500">3</span>
+          {/* Step 2 - Animation */}
+          <div className="bg-white rounded-2xl p-8 shadow-lg text-center relative">
+            <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 w-15 h-15 bg-[lab(23%_28.14_-32.02)] rounded-full flex items-center justify-center">
+              <span className="text-white font-bold text-xl">2</span>
             </div>
-            <h3 className="text-2xl font-semibold text-white">3. Generate & Download</h3>
-            <p className="text-gray-300">
-              Let the AI work its magic. Preview your video, then download or share.
+            <div className="mt-12 mb-0">
+              <div className="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg className="w-8 h-8 text-[lab(23%_28.14_-32.02)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.828 14.828a4 4 0 01-5.656 0M9 10h1m4 0h1m-6 4h.01M19 10a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+            </div>
+            <h3 className="text-lg sm:text-xl font-semibold text-black mb-3">AI Animation</h3>
+            <p className="text-gray-600 text-sm sm:text-base">
+              Our AI analyzes your photo and creates natural, lifelike movement and expressions.
             </p>
           </div>
+          
+          {/* Step 3 - Download */}
+          <div className="bg-white rounded-2xl p-8 shadow-lg text-center relative">
+            <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 w-15 h-15 bg-[lab(23%_28.14_-32.02)] rounded-full flex items-center justify-center">
+              <span className="text-white font-bold text-xl">3</span>
+            </div>
+            <div className="mt-12 mb-0">
+              <div className="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg className="w-8 h-8 text-[lab(23%_28.14_-32.02)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg>
+              </div>
+            </div>
+            <h3 className="text-lg sm:text-xl font-semibold text-black mb-3">Download Video</h3>
+            <p className="text-gray-600 text-sm sm:text-base">
+              Receive your high-quality animated video ready to share with family and friends.
+            </p>
+          </div>
+        </div>
+        
+        {/* Get Started Button */}
+        <div className="text-center">
+          <button 
+            onClick={() => document.getElementById('Product')?.scrollIntoView({ behavior: 'smooth' })}
+            className="bg-[lab(23%_28.14_-32.02)] hover:bg-[lab(23%_28.14_-32.02_/_0.9)] px-8 py-3 text-white  rounded-[50px] cursor-pointer font-semibold transition-colors flex items-center gap-3 mx-auto text-lg"
+          >
+            <span>Get Started Now</span>
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </button>
         </div>
       </div>
     </section>

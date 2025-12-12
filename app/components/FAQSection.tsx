@@ -57,8 +57,8 @@ export default function FAQSection() {
   };
 
   return (
-    <section id="FAQ" className="py-20 border-t border-slate-700" style={{ backgroundColor: 'rgb(3, 3, 3)' }}>
-      <div className="container mx-auto px-4 max-w-4xl">
+    <section id="FAQ" className="py-20" style={{ backgroundColor: 'lab(23 28.14 -32.02)' }}>
+      <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl lg:text-5xl font-bold text-white mb-4">
             Frequently asked questions
@@ -68,18 +68,17 @@ export default function FAQSection() {
           </p>
         </div>
 
-        <div className="space-y-4">
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6 lg:grid-cols-3 max-w-6xl mx-auto">
           {faqs.map((faq, index) => (
-            <div key={index} className="border-b border-gray-700 backdrop-blur-xl">
-              <div 
-                className="flex cursor-pointer items-center justify-between p-4 md:p-6 md:py-4"
-                onClick={() => toggleFAQ(index)}
-              >
-                <span className="text-base font-semibold text-white pr-4">
+            <div key={index} className="flex h-fit flex-col items-start gap-4 rounded-2xl border border-white/15 bg-slate-900/30 p-6 backdrop-blur-xl cursor-pointer" onClick={() => toggleFAQ(index)}>
+              
+              {/* Question */}
+              <div className="flex items-center justify-between w-full">
+                <h3 className="text-base font-semibold text-white pr-2">
                   {faq.question}
-                </span>
+                </h3>
                 <svg 
-                  className={`size-5 text-white transition-transform duration-300 ${
+                  className={`size-5 text-white transition-transform duration-300 flex-shrink-0 ${
                     openIndex === index ? 'rotate-180' : ''
                   }`}
                   viewBox="0 0 24 24" 
@@ -89,12 +88,13 @@ export default function FAQSection() {
                 </svg>
               </div>
               
-              <div className={`overflow-hidden transition-all duration-300 ${
-                openIndex === index ? 'max-h-96 pb-4' : 'max-h-0'
+              {/* Answer */}
+              <div className={`overflow-hidden transition-all duration-300 w-full ${
+                openIndex === index ? 'max-h-96' : 'max-h-0'
               }`}>
-                <div className="px-4 md:px-6" style={{ color: 'rgb(148, 163, 184)' }}>
+                <p className="text-sm text-white opacity-80">
                   {faq.answer}
-                </div>
+                </p>
               </div>
             </div>
           ))}

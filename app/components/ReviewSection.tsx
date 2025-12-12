@@ -9,32 +9,33 @@ export default function ReviewSection() {
     '/gifs/Beloved Moment (1).gif',
     '/gifs/Beloved Moment 3 (2).gif',
     '/gifs/Beloved Moment 3 (4).gif',
-    '/gifs/Beloved Moment.gif'
+    '/gifs/Beloved Moment.gif',
+    '/gifs/5.gif',
+    '/gifs/6.gif',
+    '/gifs/7.gif',
+    '/gifs/8.gif',
+    '/gifs/9.gif'
   ];
 
   const reviews = [
-    { name: 'Sarah M.', location: 'USA', review: 'Seeing my grandmother\'s wedding photo come to life brought tears to my eyes. It\'s like stepping back in time.', rating: 5, image: 'https://general.cdn.giannabellucci.com/cgp/brand/momento/reviews/Untitled-1.jpg' },
-    { name: 'John D.', location: 'UK', review: 'Amazing technology! The video quality is incredible and the movement looks so natural.', rating: 5, image: 'https://general.cdn.giannabellucci.com/cgp/brand/momento/reviews/Untitled-2.jpg' },
-    { name: 'Maria L.', location: 'Spain', review: 'Perfect way to preserve family memories. My kids love watching their great-grandparents come alive.', rating: 4, image: 'https://general.cdn.giannabellucci.com/cgp/brand/momento/reviews/Untitled-3.jpg' },
-    { name: 'David K.', location: 'Canada', review: 'The AI is incredibly realistic. Worth every penny for bringing old photos to life.', rating: 5, image: 'https://general.cdn.giannabellucci.com/cgp/brand/momento/reviews/Untitled-4.jpg' },
-    { name: 'Emma R.', location: 'Australia', review: 'Emotional experience seeing my late father move again. Technology at its finest.', rating: 5, image: 'https://general.cdn.giannabellucci.com/cgp/brand/momento/reviews/Untitled-5.jpg' },
-    { name: 'Alex P.', location: 'Germany', review: 'Quick delivery and amazing results. The whole family was amazed by the quality.', rating: 4, image: 'https://general.cdn.giannabellucci.com/cgp/brand/momento/reviews/Untitled-6.jpg' },
-    { name: 'Lisa T.', location: 'France', review: 'Brought my wedding photo to life beautifully. Such a magical experience!', rating: 5, image: 'https://general.cdn.giannabellucci.com/cgp/brand/momento/reviews/Untitled-7.jpg' },
-    { name: 'Mike S.', location: 'Italy', review: 'Professional quality results. The movement is so smooth and natural looking.', rating: 5, image: 'https://general.cdn.giannabellucci.com/cgp/brand/momento/reviews/Untitled-8.jpg' },
-    { name: 'Anna B.', location: 'Netherlands', review: 'Easy to use and fantastic results. Highly recommend for anyone wanting to preserve memories.', rating: 4, image: 'https://general.cdn.giannabellucci.com/cgp/brand/momento/reviews/Untitled-1.jpg' },
-    { name: 'Tom W.', location: 'Sweden', review: 'The technology behind this is incredible. My old family photos look amazing as videos.', rating: 5, image: 'https://general.cdn.giannabellucci.com/cgp/brand/momento/reviews/Untitled-2.jpg' },
-    { name: 'Sophie C.', location: 'Norway', review: 'Beautiful way to honor family history. The quality exceeded my expectations.', rating: 5, image: 'https://general.cdn.giannabellucci.com/cgp/brand/momento/reviews/Untitled-3.jpg' },
-    { name: 'James H.', location: 'Denmark', review: 'Fast processing and incredible results. Will definitely use again for more photos.', rating: 4, image: 'https://general.cdn.giannabellucci.com/cgp/brand/momento/reviews/Untitled-4.jpg' },
-    { name: 'Rachel G.', location: 'Belgium', review: 'Emotional and beautiful. Seeing my grandparents move again was priceless.', rating: 5, image: 'https://general.cdn.giannabellucci.com/cgp/brand/momento/reviews/Untitled-5.jpg' },
-    { name: 'Chris M.', location: 'Austria', review: 'Top-notch quality and service. The AI animation is remarkably lifelike.', rating: 5, image: 'https://general.cdn.giannabellucci.com/cgp/brand/momento/reviews/Untitled-6.jpg' },
-    { name: 'Nina F.', location: 'Switzerland', review: 'Perfect for preserving precious moments. The technology is truly impressive.', rating: 4, image: 'https://general.cdn.giannabellucci.com/cgp/brand/momento/reviews/Untitled-7.jpg' },
-    { name: 'Paul J.', location: 'Ireland', review: 'Amazing experience from start to finish. The final video quality is outstanding.', rating: 5, image: 'https://general.cdn.giannabellucci.com/cgp/brand/momento/reviews/Untitled-8.jpg' }
+    { name: 'Sarah M.', location: 'USA', review: 'Seeing my grandmother\'s wedding photo come to life brought tears to my eyes. It\'s like stepping back in time.', rating: 5, image: '/reviews/1.png' },
+    { name: 'John D.', location: 'UK', review: 'Amazing technology! The video quality is incredible and the movement looks so natural.', rating: 5, image: '/reviews/2.png' },
+    { name: 'Maria L.', location: 'Spain', review: 'Perfect way to preserve family memories. My kids love watching their great-grandparents come alive.', rating: 4, image: '/reviews/3.png' },
+    { name: 'David K.', location: 'Canada', review: 'The AI is incredibly realistic. Worth every penny for bringing old photos to life.', rating: 5, image: '/reviews/4.png' },
+    { name: 'Emma R.', location: 'Australia', review: 'Emotional experience seeing my late father move again. Technology at its finest.', rating: 5, image: '/reviews/5.png' },
+    { name: 'Alex P.', location: 'Germany', review: 'Quick delivery and amazing results. The whole family was amazed by the quality.', rating: 4, image: '/reviews/6.png' },
+    { name: 'Lisa T.', location: 'France', review: 'Brought my wedding photo to life beautifully. Such a magical experience!', rating: 5, image: '/reviews/7.png' },
+    { name: 'Mike S.', location: 'Italy', review: 'Professional quality results. The movement is so smooth and natural looking.', rating: 5, image: '/reviews/8.png' },
+    { name: 'Anna B.', location: 'Netherlands', review: 'Easy to use and fantastic results. Highly recommend for anyone wanting to preserve memories.', rating: 4, image: '/reviews/9.png' }
   ];
 
-  const displayedReviews = showMore ? reviews : reviews.slice(0, typeof window !== 'undefined' && window.innerWidth < 768 ? 6 : 9);
+  const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
+  const totalCards = isMobile ? 6 : 9;
+  const initialCards = isMobile ? 3 : 6;
+  const displayedReviews = showMore ? reviews.slice(0, totalCards) : reviews.slice(0, initialCards);
 
   return (
-    <section className="py-20" style={{ backgroundColor: '#1D4ED8' }}>
+    <section className="py-20" style={{ backgroundColor: 'lab(23 28.14 -32.02)' }} id="Reviewes">
       <div className="container mx-auto px-4">
         
         {/* Part 1 - Header */}
@@ -43,11 +44,12 @@ export default function ReviewSection() {
             Real Stories, Real Magic
           </h2>
           <p className="text-xl text-white/90 mb-4">
-            See How People Are Bringing Their Memories to Life
+                            Where photos turn into stories, and stories turn into feelings.
           </p>
           <p className="text-white/80 max-w-3xl mx-auto">
             Join thousands of people who have experienced the joy of seeing their cherished photos come alive with natural, lifelike movement.
           </p>
+          
         </div>
 
         {/* Part 2 - Review Cards */}
@@ -62,7 +64,7 @@ export default function ReviewSection() {
                     <img 
                       src={videos[index % videos.length]} 
                       alt=""
-                      className="max-h-96 w-100 object-cover"
+                      className="w-full h-auto object-contain"
                     />
                   </div>
                 </div>
@@ -107,9 +109,12 @@ export default function ReviewSection() {
         <div className="text-center mt-12">
           <button 
             onClick={() => setShowMore(!showMore)}
-            className="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors cursor-pointer"
+            className="bg-white text-purple-500 px-8 py-3 rounded-[50px] font-semibold hover:bg-gray-100 transition-colors cursor-pointer flex items-center gap-2 mx-auto"
           >
-            {showMore ? 'Show Less' : 'Load More'}
+            <span>{showMore ? 'Show Less' : 'Load More'}</span>
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={showMore ? "M5 15l7-7 7 7" : "M19 9l-7 7-7-7"} />
+            </svg>
           </button>
         </div>
       </div>

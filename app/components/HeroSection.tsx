@@ -5,6 +5,7 @@ import Image from 'next/image';
 
 export default function HeroSection() {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [isTransitioning, setIsTransitioning] = useState(true);
   
   const videos = [
     '/gifs/Header 1.gif',
@@ -12,9 +13,23 @@ export default function HeroSection() {
     '/gifs/Header 3.gif'
   ];
 
+  // Create extended array for infinite loop
+  const extendedVideos = [...videos, videos[0]];
+
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % videos.length);
+      setCurrentSlide((prev) => {
+        if (prev === videos.length) {
+          // Reset to first slide without animation
+          setTimeout(() => {
+            setIsTransitioning(false);
+            setCurrentSlide(0);
+            setTimeout(() => setIsTransitioning(true), 50);
+          }, 1000);
+          return prev + 1;
+        }
+        return prev + 1;
+      });
     }, 4000);
     return () => clearInterval(interval);
   }, [videos.length]);
@@ -23,6 +38,7 @@ export default function HeroSection() {
     <section 
       className="min-h-screen bg-cover bg-center relative -mt-20 pt-10"
       style={{ backgroundImage: 'url(/3672201.jpg)' }}
+      id="Featured"
     >
       <div className="absolute inset-0 bg-black/50"></div>
       
@@ -38,25 +54,19 @@ export default function HeroSection() {
             </div>
             
             <h1 className="fade-up relative max-w-[800px] text-balance text-center !text-4xl !font-[300] tracking-tighter !text-slate-400 md:text-left lg:!text-[60px] lg:!leading-[60px] [&_b]:font-[800] [&_b]:!text-slate-50">
-              Transform Your Beloved Moments Into <b>Living Memories</b>
+              Transform your <b>Beloved moments</b> into <b>Living Memories</b>
             </h1>
             
             <p className="text-lg text-slate-300 mt-6 max-w-[600px] text-center lg:text-left">
-              Upload your favourite photos and receive a beautifully crafted video filled with emotion, meaning, and music.
+              Upload your favourite photos and receive a beautifully crafted video filled with emotion.
             </p>
-            
-            <div className="mt-8 text-center lg:text-left">
-              <p className="text-xl text-slate-200 italic">
-                Where photos turn into stories, and stories turn into feelings.
-              </p>
-            </div>
             
             <div className="flex items-center justify-center lg:justify-start gap-4 mt-10">
               <div className="flex">
                 {[1,2,3,4,5].map((i) => (
                   <img 
                     key={i}
-                    src={`https://general.cdn.giannabellucci.com/cgp/brand/momento/reviews/Untitled-${i}.jpg?width=100`}
+                    src={`/reviews/${i}.png`}
                     className="-ml-[30px] first:ml-0 size-[52px] rounded-full border-[4px] border-slate-950"
                     alt=""
                   />
@@ -76,13 +86,13 @@ export default function HeroSection() {
           </div>
 
           {/* Column 2 - Video Slider */}
-          <div className="w-full lg:w-1/2">
-            <div className="relative aspect-video rounded-lg overflow-hidden">
+          <div className="w-full lg:w-1/2 flex justify-center">
+            <div className="relative aspect-video rounded-lg overflow-hidden w-full max-w-md lg:max-w-none">
               <div 
-                className="flex transition-transform duration-1000 ease-in-out" 
+                className={`flex ${isTransitioning ? 'transition-transform duration-1000 ease-in-out' : ''}`}
                 style={{ transform: `translateX(-${currentSlide * 100}%)` }}
               >
-                {videos.map((video, index) => (
+                {extendedVideos.map((video, index) => (
                   <img
                     key={index}
                     src={video}

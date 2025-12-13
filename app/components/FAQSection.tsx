@@ -57,7 +57,7 @@ export default function FAQSection() {
   };
 
   return (
-    <section id="FAQ" className="py-20" style={{ backgroundColor: 'lab(23 28.14 -32.02)' }}>
+    <section id="faq" className="py-20" style={{ backgroundColor: 'lab(23 28.14 -32.02)' }}>
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl lg:text-5xl font-bold text-white mb-4">
@@ -98,6 +98,19 @@ export default function FAQSection() {
               </div>
             </div>
           ))}
+        </div>
+
+        {/* Order Now Button */}
+        <div className="text-center mt-12">
+          <a 
+            href="#Order"
+            className="bg-white text-black px-8 py-3 rounded-[50px] font-semibold hover:bg-gray-100 transition-colors inline-flex items-center gap-3 text-lg"
+          >
+            <span>Order Now</span>
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </a>
         </div>
       </div>
     </section>

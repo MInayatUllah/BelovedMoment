@@ -17,7 +17,7 @@ export async function POST(request) {
       ],
       mode: 'payment',
       success_url: `${process.env.NEXT_PUBLIC_APP_URL}/success?session_id={CHECKOUT_SESSION_ID}`,
-      cancel_url: `${process.env.NEXT_PUBLIC_APP_URL}/#Product`,
+      cancel_url: `${process.env.NEXT_PUBLIC_APP_URL}/#Order`,
       metadata: {
         imageUrl,
         processingTime

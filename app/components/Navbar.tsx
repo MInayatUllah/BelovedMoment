@@ -36,11 +36,14 @@ export default function Navbar() {
               
               {/* Desktop Menu */}
               <div className="hidden md:flex items-center space-x-6 lg:space-x-8">
-                <Link href="/#Reviewes" className="text-white hover:text-purple-300 text-sm md:text-base font-medium transition-all duration-200 hover:scale-105">
+                <Link href="/#reviews" className="text-white hover:text-purple-300 text-sm md:text-base font-medium transition-all duration-200 hover:scale-105">
                   Before & After
                 </Link>
                 <Link href="#how-it-works" className="text-white hover:text-purple-300 text-sm md:text-base font-medium transition-all duration-200 hover:scale-105">
                   How it works
+                </Link>
+                <Link href="/contact-us" className="text-white hover:text-purple-300 text-sm md:text-base font-medium transition-all duration-200 hover:scale-105">
+                  Contact
                 </Link>
                 
                 <div className="relative" ref={helpRef}>
@@ -56,8 +59,8 @@ export default function Navbar() {
                   {isHelpOpen && (
                     <div className="absolute top-full right-0 mt-2 w-64 rounded-2xl border border-white/15 bg-[#392256] backdrop-blur-xl overflow-hidden">
                       <div className="p-4 space-y-2">
-                        <Link href="/#FAQ" className="block px-4 py-2 text-white hover:bg-white/10 rounded-lg transition-all duration-200 cursor-pointer font-sm">
-                          Freequently Asked Questions
+                        <Link href="/#faq" className="block px-4 py-2 text-white hover:bg-white/10 rounded-lg transition-all duration-200 cursor-pointer font-sm">
+                          Frequently Asked Questions
                         </Link>
                         <Link href="/shipping-policy" className="block px-4 py-3 text-white hover:bg-white/10 rounded-lg transition-all duration-200 cursor-pointer">
                           Shipping Policy
@@ -80,7 +83,7 @@ export default function Navbar() {
                 </div>
                 
                 <Link 
-                  href="#Product" 
+                  href="#Order" 
                   className="bg-white hover:bg-gray-100 text-black px-4 py-2 md:px-6 md:py-2 rounded-[50px] text-sm md:text-base"
                 >
                   Order Now
@@ -90,7 +93,7 @@ export default function Navbar() {
               {/* Mobile Menu */}
               <div className="flex md:hidden items-center space-x-3">
                 <Link 
-                  href="#Product" 
+                  href="#Order" 
                   className="bg-white hover:bg-gray-100 text-black px-3 py-1.5 rounded-[50px] text-sm font-medium "
                 >
                   Order Now
@@ -123,18 +126,21 @@ export default function Navbar() {
             </div>
             <div className="p-6 space-y-6">
               <div className="space-y-3">
-                <Link href="/#Reviewes" className="flex items-center gap-3 text-white hover:text-purple-300 py-3 px-4 rounded-xl hover:bg-white/10 transition-all duration-200 group" onClick={() => setIsMobileMenuOpen(false)}>
+                <Link href="/#reviews" className="flex items-center gap-3 text-white hover:text-purple-300 py-3 px-4 rounded-xl hover:bg-white/10 transition-all duration-200 group" onClick={() => setIsMobileMenuOpen(false)}>
                   <span className="font-medium">Before & After</span>
                 </Link>
                 <Link href="#how-it-works" className="flex items-center gap-3 text-white hover:text-purple-300 py-3 px-4 rounded-xl hover:bg-white/10 transition-all duration-200 group" onClick={() => setIsMobileMenuOpen(false)}>
                   <span className="font-medium">How it works</span>
                 </Link>
+                <Link href="/contact-us" className="flex items-center gap-3 text-white hover:text-purple-300 py-3 px-4 rounded-xl hover:bg-white/10 transition-all duration-200 group" onClick={() => setIsMobileMenuOpen(false)}>
+                  <span className="font-medium">Contact</span>
+                </Link>
               </div>
               <div className="border-t border-purple-500/30 pt-6">
                 <p className="text-purple-300 text-sm font-semibold mb-4 px-4">Help & Support</p>
                 <div className="space-y-2">
-                  <Link href="/#FAQ" className="flex items-center gap-3 text-white/90 hover:text-white py-2 px-4 rounded-lg hover:bg-white/5 transition-all duration-200 text-sm" onClick={() => setIsMobileMenuOpen(false)}>
-                    FAQ
+                  <Link href="/#faq" className="flex items-center gap-3 text-white/90 hover:text-white py-2 px-4 rounded-lg hover:bg-white/5 transition-all duration-200 text-sm" onClick={() => setIsMobileMenuOpen(false)}>
+                    Frequently Asked Questions
                   </Link>
                   <Link href="/shipping-policy" className="flex items-center gap-3 text-white/90 hover:text-white py-2 px-4 rounded-lg hover:bg-white/5 transition-all duration-200 text-sm" onClick={() => setIsMobileMenuOpen(false)}>
                     Shipping Policy
@@ -147,9 +153,6 @@ export default function Navbar() {
                   </Link>
                   <Link href="/terms-conditions" className="flex items-center gap-3 text-white/90 hover:text-white py-2 px-4 rounded-lg hover:bg-white/5 transition-all duration-200 text-sm" onClick={() => setIsMobileMenuOpen(false)}>
                     Terms & Conditions
-                  </Link>
-                  <Link href="/contact" className="flex items-center gap-3 text-white/90 hover:text-white py-2 px-4 rounded-lg hover:bg-white/5 transition-all duration-200 text-sm" onClick={() => setIsMobileMenuOpen(false)}>
-                    Contact Us
                   </Link>
                 </div>
               </div>

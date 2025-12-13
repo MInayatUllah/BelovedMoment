@@ -58,7 +58,7 @@ export default function HeroSection() {
             </h1>
             
             <p className="text-lg text-slate-300 mt-6 max-w-[600px] text-center lg:text-left">
-              Upload your favourite photos and receive a beautifully crafted video filled with emotion.
+              Upload your favorite photos and receive a beautifully crafted video filled with emotion.
             </p>
             
             <div className="flex items-center justify-center lg:justify-start gap-4 mt-10">
@@ -82,6 +82,19 @@ export default function HeroSection() {
                   <b className="text-white">4.8/5</b>&nbsp;&nbsp;&nbsp;1249 reviews
                 </span>
               </div>
+            </div>
+            
+            {/* Order Now Link */}
+            <div className="flex justify-center lg:justify-start mt-8">
+              <a 
+                href="#Order"
+                className="text-white hover:text-gray-300 font-bold text-lg transition-colors underline inline-flex items-center gap-2"
+              >
+                Order Now
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m0 0V3" />
+                </svg>
+              </a>
             </div>
           </div>
 

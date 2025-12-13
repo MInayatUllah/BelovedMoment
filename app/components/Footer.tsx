@@ -34,9 +34,10 @@ export default function Footer() {
             <h3 className="text-base md:text-lg font-semibold mb-3 md:mb-4 text-white">Quick Links</h3>
             <div className="space-y-2">
               <Link href="/" className="block hover:text-purple-300 text-sm md:text-base py-1 transition-colors">Home</Link>
-              <Link href="#Product" className="block hover:text-purple-300 text-sm md:text-base py-1 transition-colors">Order Now</Link>
-              <Link href="/before-after" className="block hover:text-purple-300 text-sm md:text-base py-1 transition-colors">Before & After</Link>
+              <Link href="/#Order" className="block hover:text-purple-300 text-sm md:text-base py-1 transition-colors">Order Now</Link>
+              <Link href="/#reviews" className="block hover:text-purple-300 text-sm md:text-base py-1 transition-colors">Before & After</Link>
               <Link href="#how-it-works" className="block hover:text-purple-300 text-sm md:text-base py-1 transition-colors">How it works</Link>
+              <Link href="/contact-us" className="block hover:text-purple-300 text-sm md:text-base py-1 transition-colors">Contact</Link>
             </div>
           </div>
 
@@ -44,7 +45,7 @@ export default function Footer() {
           <div>
             <h3 className="text-base md:text-lg font-semibold mb-3 md:mb-4 text-white">Support</h3>
             <div className="space-y-2">
-              <Link href="/#FAQ" className="block hover:text-purple-300 text-sm md:text-base py-1 transition-colors">FAQ</Link>
+              <Link href="/#faq" className="block hover:text-purple-300 text-sm md:text-base py-1 transition-colors">FAQ</Link>
               <Link href="/terms-conditions" className="block hover:text-purple-300 text-sm md:text-base py-1 transition-colors">Terms & Conditions</Link>
               <Link href="/privacy-policy" className="block hover:text-purple-300 text-sm md:text-base py-1 transition-colors">Privacy Policy</Link>
               <Link href="/return-refund-policy" className="block hover:text-purple-300 text-sm md:text-base py-1 transition-colors">Return & Refund</Link>
@@ -60,7 +61,9 @@ export default function Footer() {
                 <svg className="w-4 h-4 text-purple-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
-                <span className="text-sm text-purple-200">support@belovedmoment.com</span>
+                <a href="mailto:support@belovedmoment.com" className="text-sm text-purple-200 hover:text-white transition-colors">
+                  support@belovedmoment.com
+                </a>
               </div>
               <div className="flex items-center gap-2">
                 <svg className="w-4 h-4 text-purple-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">

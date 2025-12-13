@@ -18,15 +18,15 @@ export default function ReviewSection() {
   ];
 
   const reviews = [
-    { name: 'Sarah M.', location: 'USA', review: 'Seeing my grandmother\'s wedding photo come to life brought tears to my eyes. It\'s like stepping back in time.', rating: 5, image: '/reviews/1.png' },
-    { name: 'John D.', location: 'UK', review: 'Amazing technology! The video quality is incredible and the movement looks so natural.', rating: 5, image: '/reviews/2.png' },
-    { name: 'Maria L.', location: 'Spain', review: 'Perfect way to preserve family memories. My kids love watching their great-grandparents come alive.', rating: 4, image: '/reviews/3.png' },
-    { name: 'David K.', location: 'Canada', review: 'The AI is incredibly realistic. Worth every penny for bringing old photos to life.', rating: 5, image: '/reviews/4.png' },
-    { name: 'Emma R.', location: 'Australia', review: 'Emotional experience seeing my late father move again. Technology at its finest.', rating: 5, image: '/reviews/5.png' },
-    { name: 'Alex P.', location: 'Germany', review: 'Quick delivery and amazing results. The whole family was amazed by the quality.', rating: 4, image: '/reviews/6.png' },
-    { name: 'Lisa T.', location: 'France', review: 'Brought my wedding photo to life beautifully. Such a magical experience!', rating: 5, image: '/reviews/7.png' },
-    { name: 'Mike S.', location: 'Italy', review: 'Professional quality results. The movement is so smooth and natural looking.', rating: 5, image: '/reviews/8.png' },
-    { name: 'Anna B.', location: 'Netherlands', review: 'Easy to use and fantastic results. Highly recommend for anyone wanting to preserve memories.', rating: 4, image: '/reviews/9.png' }
+    { name: 'Marcus T.', location: 'USA', review: 'Seeing my grandfather move again brought tears to my eyes. The team did an amazing job bringing our old photo to life.', rating: 5, image: '/reviews/1.png' },
+    { name: 'Isabella R.', location: 'UK', review: 'Really impressed with how natural the movement looks. My family loved watching our old wedding photo come alive.', rating: 5, image: '/reviews/2.png' },
+    { name: 'Alexander J.', location: 'Spain', review: 'Perfect gift for my mom. She cried happy tears seeing her parents move again. Worth every penny.', rating: 4, image: '/reviews/3.png' },
+    { name: 'Sophia M.', location: 'Canada', review: 'The editors really know what they\'re doing. My old family photo looks so realistic now. Highly recommend!', rating: 5, image: '/reviews/4.png' },
+    { name: 'Benjamin K.', location: 'Australia', review: 'Lost my dad last year. This service let me see him smile one more time. Thank you so much.', rating: 5, image: '/reviews/5.png' },
+    { name: 'Christopher L.', location: 'Germany', review: 'Fast delivery and great quality. The whole family was amazed at how good it turned out.', rating: 4, image: '/reviews/6.png' },
+    { name: 'Victoria S.', location: 'France', review: 'Turned my wedding photo into something magical. Easy to order and the results are beautiful.', rating: 5, image: '/reviews/7.png' },
+    { name: 'Anastasia P.', location: 'Italy', review: 'The movement looks so smooth and natural. Great way to preserve family memories for future generations.', rating: 5, image: '/reviews/8.png' },
+    { name: 'Gabriella W.', location: 'Netherlands', review: 'Simple process and fantastic results. My kids love watching their grandparents come to life in the photo.', rating: 4, image: '/reviews/9.png' }
   ];
 
   const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
@@ -35,19 +35,19 @@ export default function ReviewSection() {
   const displayedReviews = showMore ? reviews.slice(0, totalCards) : reviews.slice(0, initialCards);
 
   return (
-    <section className="py-20" style={{ backgroundColor: 'lab(23 28.14 -32.02)' }} id="Reviewes">
+    <section className="py-20" style={{ backgroundColor: 'lab(23 28.14 -32.02)' }} id="reviews">
       <div className="container mx-auto px-4">
         
         {/* Part 1 - Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">
-            Real Stories, Real Magic
+            Hear From Our Happy Customers
           </h2>
           <p className="text-xl text-white/90 mb-4">
-                            Where photos turn into stories, and stories turn into feelings.
+            Where timeless memories transcend into living, breathing narratives that touch the heart.
           </p>
           <p className="text-white/80 max-w-3xl mx-auto">
-            Join thousands of people who have experienced the joy of seeing their cherished photos come alive with natural, lifelike movement.
+            Join thousands of families who have brought their precious memories to life with our expert editing team, creating magical moments that reconnect you with your loved ones.
           </p>
           
         </div>
@@ -55,7 +55,16 @@ export default function ReviewSection() {
         {/* Part 2 - Review Cards */}
         <div className="grid grid-cols-1 gap-4 px-4 md:grid-cols-2 md:gap-6 md:px-0 lg:grid-cols-3">
           {displayedReviews.map((review, index) => (
-            <div key={index} className="flex h-fit flex-col items-start gap-4 rounded-2xl border border-white/15 bg-slate-900/30 p-6 backdrop-blur-xl">
+            <div 
+              key={index} 
+              className="flex h-fit flex-col items-start gap-4 rounded-2xl border border-white/15 bg-slate-900/30 p-6 backdrop-blur-xl cursor-pointer hover:bg-slate-900/40 transition-colors"
+              onClick={() => {
+                const orderSection = document.getElementById('Order');
+                if (orderSection) {
+                  orderSection.scrollIntoView({ behavior: 'smooth' });
+                }
+              }}
+            >
               
               {/* Video */}
               <div className="pointer-events-none relative w-full">
@@ -109,10 +118,10 @@ export default function ReviewSection() {
         <div className="text-center mt-12">
           <button 
             onClick={() => setShowMore(!showMore)}
-            className="bg-white text-purple-500 px-8 py-3 rounded-[50px] font-semibold hover:bg-gray-100 transition-colors cursor-pointer flex items-center gap-2 mx-auto"
+            className="bg-white text-black px-8 py-3 rounded-[50px] font-semibold hover:bg-gray-100 transition-colors cursor-pointer inline-flex items-center gap-3 text-lg"
           >
             <span>{showMore ? 'Show Less' : 'Load More'}</span>
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={showMore ? "M5 15l7-7 7 7" : "M19 9l-7 7-7-7"} />
             </svg>
           </button>

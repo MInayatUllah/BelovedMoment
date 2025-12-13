@@ -54,7 +54,7 @@ export default function HowItWorksSection() {
             </div>
             <h3 className="text-lg sm:text-xl font-semibold text-black mb-3">Professional Animation</h3>
             <p className="text-gray-600 text-sm sm:text-base">
-              Our skilled video editors with professional expertise bring your photos to life with natural, lifelike movement and expressions.
+              Our skilled team with professional expertise bring your photos to life with natural, lifelike movement and expressions.
             </p>
           </div>
           
@@ -79,15 +79,15 @@ export default function HowItWorksSection() {
         
         {/* Get Started Button */}
         <div className="text-center">
-          <button 
-            onClick={() => document.getElementById('Product')?.scrollIntoView({ behavior: 'smooth' })}
-            className="bg-[lab(23%_28.14_-32.02)] hover:bg-[lab(23%_28.14_-32.02_/_0.9)] px-8 py-3 text-white  rounded-[50px] cursor-pointer font-semibold transition-colors flex items-center gap-3 mx-auto text-lg"
+          <a 
+            href="#Order"
+            className="bg-[lab(23%_28.14_-32.02)] hover:bg-[lab(23%_28.14_-32.02_/_0.9)] px-8 py-3 text-white  rounded-[50px] cursor-pointer font-semibold transition-colors inline-flex items-center gap-3 text-lg"
           >
             <span>Get Started Now</span>
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
-          </button>
+          </a>
         </div>
       </div>
     </section>
